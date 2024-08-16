@@ -7,7 +7,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-if($data && $data['name'] && $data['age'] && $data['city']){
+if(is_array($data) && isset($data['name']) && isset($data['age']) && isset($data['city'])){
     include_once("config.php");
     $sql = "INSERT INTO students(student_name, age, city) 
     VALUES ('{$data['name']}', {$data['age']} , '{$data['city']}')";

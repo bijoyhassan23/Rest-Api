@@ -4,7 +4,7 @@ header('Access-Control-Allow-Origin: *');
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-if($data){
+if($data && isset($data['sid'])){
     $student_id = $data['sid'];
 
     include_once("config.php");
